@@ -15,7 +15,7 @@
       <p id="timer-element">Time Left:<span id="time-clock"></span></p>
     </header>
     <section id="start-section">
-      <div id="start-window">
+      <div id="start-window" class="window">
         <h1>Welcome to the World's Most Impossible Coding Quiz!</h1>
         <br />
         <h2>Would you like to Start the Quiz?</h2>
@@ -28,7 +28,7 @@
           Begin Quiz
         </button>
       </div>
-      <div id="question-window">
+      <div id="question-window" class="window">
         <h3 id="question"></h3>
         <ul id="answers">
           <li id="answer1">
@@ -60,6 +60,22 @@
             ></button>
           </li>
         </ul>
+      </div>
+      <div id="high-score-window" class="window">
+        <h3>
+          Congratulations! You got a high Score of
+          <span id="high-score-value"></span>! Please put your initials in the
+          box below!
+        </h3>
+        <input id="high-score-input" placeholder="Initials" type="text" />
+        <button
+          id="high-score-button"
+          class="button"
+          type="submit"
+          title="Add High Score"
+        >
+          Add High Score
+        </button>
       </div>
     </section>
     <script src="./assets/js/script.js"></script>

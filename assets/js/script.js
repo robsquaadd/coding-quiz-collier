@@ -30,35 +30,75 @@ function startQuiz() {
   var count = 0;
   startEl.style.display = "none";
   quizEl.style.display = "block";
-  displayQuestion(count, questionsArray, answersElArray, questionEl);
+  displayQuestion(
+    count,
+    questionsArray,
+    answersElArray,
+    questionEl,
+    quizEl,
+    countDownEl
+  );
   answerListEl.addEventListener("click", function (event) {
     var targetEl = event.target;
-    count = checkAnswers(targetEl, countDownEl, questionsArray, count);
-    displayQuestion(count, questionsArray, answersElArray, questionEl);
+    count = checkAnswers(targetEl, countDownEl, questionsArray, count, quizEl);
+    displayQuestion(
+      count,
+      questionsArray,
+      answersElArray,
+      questionEl,
+      quizEl,
+      countDownEl
+    );
   });
   countDownEl.value = 10;
   countDownEl.textContent = countDownEl.value.toString();
   timerEl.style.display = "flex";
   interval = setInterval(function () {
-    quizTimer(countDownEl);
+    quizTimer(countDownEl, quizEl);
   }, 1000);
 }
 
-function quizTimer(countDownEl) {
+function quizTimer(countDownEl, quizEl) {
   if (countDownEl.value > 0) {
     countDownEl.value--;
     countDownEl.textContent = countDownEl.value.toString();
   } else {
     alert("You have run out of time! Better luck next time!");
-    clearInterval(interval);
-    return false;
+    displayHighScoreWindow(countDownEl.value, quizEl);
   }
 }
 
-function displayQuestion(count, array1, array2, element) {
-  element.textContent = array1[count].question;
-  for (i = 0; i < array2.length; i++) {
-    array2[i].textContent = array1[count].answers[i];
+function displayQuestion(count, array1, array2, element1, element2, element3) {
+  if (count < array1.length) {
+    element1.textContent = array1[count].question;
+    for (i = 0; i < array2.length; i++) {
+      array2[i].textContent = array1[count].answers[i];
+    }
+  } else {
+    displayHighScoreWindow(element3.value, element2);
+  }
+}
+
+function displayHighScoreWindow(score, quizElement) {
+  clearInterval(interval);
+  quizElement.style.display = "none";
+  // highScoreArray = localStorage.getItem().toArray()
+  var highScoreEl = document.getElementById("high-score-window");
+  //var highScoreValueEl = document.getElementById("high-score-value");
+  var highScoreInputEl = document.getElementById("high-score-input");
+  var highScoreHeaderEl = document.getElementById("");
+  var highScoreButtonEl = document.getElementById("high-score-button");
+  highScoreEl.style.display = "flex";
+  if (score >= 1) {
+    highScoreHeaderEl.textContent =
+      "Congratulations! You got a new high Score of " +
+      score +
+      "Please put your initials below!";
+  } else {
+    highScoreHeaderEl.textContnent =
+      "You did not get a high score on this quiz! Please try again!";
+    highScoreInputEl.style.display = "none";
+    highScoreButtonEl.style.display = "none";
   }
 }
 
