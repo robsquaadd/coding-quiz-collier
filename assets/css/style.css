@@ -66,8 +66,23 @@ header p {
 #question-window,
 #high-score-window {
   display: none;
+  flex-wrap: wrap;
 }
 
 #question-window ul {
   list-style: none;
+}
+
+#high-score-input {
+  flex: 0 100%;
+  width: 50%;
+  border-radius: 5px;
+  outline: none;
+}
+
+#high-score-button,
+#high-score-window h3 {
+  flex: 0 100%;
+  width: 50%;
+  margin: 10px;
 }

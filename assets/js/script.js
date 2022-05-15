@@ -38,18 +38,26 @@ function startQuiz() {
     quizEl,
     countDownEl
   );
-  answerListEl.addEventListener("click", function (event) {
-    var targetEl = event.target;
-    count = checkAnswers(targetEl, countDownEl, questionsArray, count, quizEl);
-    displayQuestion(
-      count,
-      questionsArray,
-      answersElArray,
-      questionEl,
-      quizEl,
-      countDownEl
-    );
-  });
+  for (i = 0; i < answersElArray.length; i++) {
+    answersElArray[i].addEventListener("click", function (event) {
+      var targetEl = event.target;
+      count = checkAnswers(
+        targetEl,
+        countDownEl,
+        questionsArray,
+        count,
+        quizEl
+      );
+      displayQuestion(
+        count,
+        questionsArray,
+        answersElArray,
+        questionEl,
+        quizEl,
+        countDownEl
+      );
+    });
+  }
   countDownEl.value = 10;
   countDownEl.textContent = countDownEl.value.toString();
   timerEl.style.display = "flex";
@@ -86,19 +94,25 @@ function displayHighScoreWindow(score, quizElement) {
   var highScoreEl = document.getElementById("high-score-window");
   //var highScoreValueEl = document.getElementById("high-score-value");
   var highScoreInputEl = document.getElementById("high-score-input");
-  var highScoreHeaderEl = document.getElementById("");
+  var highScoreHeaderEl = document.getElementById("high-score-header");
   var highScoreButtonEl = document.getElementById("high-score-button");
+  var startEl = document.getElementById("#start-window");
+  highScoreButtonEl.addEventListener("click", function () {
+    storeHighScore();
+    highScoreEl.style.display = "none";
+    startEl.style.display = "flex";
+  });
   highScoreEl.style.display = "flex";
   if (score >= 1) {
     highScoreHeaderEl.textContent =
       "Congratulations! You got a new high Score of " +
       score +
-      "Please put your initials below!";
+      "! Please put your initials below!";
   } else {
-    highScoreHeaderEl.textContnent =
+    highScoreHeaderEl.textContent =
       "You did not get a high score on this quiz! Please try again!";
     highScoreInputEl.style.display = "none";
-    highScoreButtonEl.style.display = "none";
+    highScoreButtonEl.textContent = "Try Again";
   }
 }
 
@@ -115,3 +129,5 @@ function checkAnswers(target, timer, array, count) {
   count += 1;
   return count;
 }
+
+function storeHighScore();
