@@ -130,6 +130,7 @@ let showHighScoreWindow = () => {
       score +
       "! Please input your initials below!";
     highScoreButtonEl.textContent = "Add High Score";
+    highScoreInputEl.style.display = "flex";
     highScoreButtonEl.addEventListener("click", () => {
       storeHighScore(score, getHighScoresFromLocalStorage, highScoreRank);
       restartQuiz();
@@ -138,6 +139,7 @@ let showHighScoreWindow = () => {
     highScoreHeaderEl.textContent =
       "Unforunately, you did not get a high score this round! Please try again!";
     highScoreButtonEl.textContent = "Restart the quiz";
+    highScoreInputEl.style.display = "none";
     highScoreButtonEl.addEventListener("click", restartQuiz);
   }
   windowEls[1].style.display = "none";
