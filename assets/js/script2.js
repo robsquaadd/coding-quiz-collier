@@ -16,7 +16,7 @@ var questionsArray = [
     question: "How can I declare a function in JavaScript",
     answers: [
       "function name () {}",
-      "var name = () {}",
+      "var name = funciton() {}",
       "var name = () => {} ",
       "All of the above",
     ],

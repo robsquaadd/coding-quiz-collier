@@ -22,4 +22,4 @@ At any time, the user may click the view high scores link in the upper left hand
 ![view-high-scores](./assets/images/viewhighscores.png)
 ![high-score-storage](./assets/images/highscorestored.png)
 
-Link:
+Link: https://robsquaadd.github.io/coding-quiz-collier/
