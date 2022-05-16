@@ -10,7 +10,9 @@
   <body>
     <header>
       <nav>
-        <a href="#" title="View High Scores">View High Scores</a>
+        <a id="view-high-scores" href="#" title="View High Scores"
+          >View High Scores</a
+        >
       </nav>
       <p id="timer-element">Time Left:<span id="time-clock"></span></p>
     </header>
@@ -30,36 +32,10 @@
       </div>
       <div id="question-window" class="window">
         <h3 id="question"></h3>
-        <ul id="answers">
-          <li id="answer1">
-            <button
-              class="answerButton button"
-              type="submit"
-              title="a"
-            ></button>
-          </li>
-          <li id="answer2">
-            <button
-              class="answerButton button"
-              type="submit"
-              title="b"
-            ></button>
-          </li>
-          <li id="answer3">
-            <button
-              class="answerButton button"
-              type="submit"
-              title="c"
-            ></button>
-          </li>
-          <li id="answer4">
-            <button
-              class="answerButton button"
-              type="submit"
-              title="d"
-            ></button>
-          </li>
-        </ul>
+        <button class="answerButton button" type="submit" title="a"></button>
+        <button class="answerButton button" type="submit" title="b"></button>
+        <button class="answerButton button" type="submit" title="c"></button>
+        <button class="answerButton button" type="submit" title="d"></button>
       </div>
       <div id="high-score-window" class="window">
         <h3 id="high-score-header"></h3>
@@ -75,6 +51,6 @@
         </button>
       </div>
     </section>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script2.js"></script>
   </body>
 </html>

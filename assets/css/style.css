@@ -45,6 +45,7 @@ header p {
   color: white;
   border-radius: 10px;
   padding: 20px;
+  margin: 5px;
 }
 
 .button {
@@ -67,6 +68,7 @@ header p {
 #high-score-window {
   display: none;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 #question-window ul {
@@ -74,15 +76,17 @@ header p {
 }
 
 #high-score-input {
-  flex: 0 100%;
-  width: 50%;
+  flex: 0 80%;
   border-radius: 5px;
   outline: none;
 }
 
 #high-score-button,
 #high-score-window h3 {
-  flex: 0 100%;
-  width: 50%;
+  flex: 0 80%;
   margin: 10px;
+}
+
+#high-score-window h3 {
+  text-align: center;
 }
